@@ -1867,7 +1867,7 @@ emu-note[type=editor] span.note {
     <emu-grammar><emu-production name="ClassElement" params="Yield, Await" id="prod-ClassElement">
     <emu-nt params="Yield, Await"><a href="#prod-ClassElement">ClassElement</a><emu-mods><emu-params>[Yield, Await]</emu-params></emu-mods></emu-nt><emu-geq>:</emu-geq><emu-rhs a="91edbff4"><emu-nt params="?Yield, ?Await"><a href="https://tc39.github.io/ecma262/#prod-MethodDefinition">MethodDefinition</a><emu-mods><emu-params>[?Yield, ?Await]</emu-params></emu-mods></emu-nt></emu-rhs>
     <emu-rhs a="6b4234e8"><emu-t>static</emu-t><emu-nt params="?Yield, ?Await"><a href="https://tc39.github.io/ecma262/#prod-MethodDefinition">MethodDefinition</a><emu-mods><emu-params>[?Yield, ?Await]</emu-params></emu-mods></emu-nt></emu-rhs><ins>
-    <emu-rhs a="8b99675b"><emu-nt params="?Yield, ?Await" id="_ref_104"><a href="#prod-FieldDefinitionList">FieldDefinitionList</a><emu-mods><emu-params>[?Yield, ?Await]</emu-params></emu-mods></emu-nt></emu-rhs>
+    <emu-rhs a="c93c3e62"><emu-t>own</emu-t><emu-gann>[no <emu-nt><a href="https://tc39.github.io/ecma262/#prod-LineTerminator">LineTerminator</a></emu-nt> here]</emu-gann><emu-nt params="?Yield, ?Await" id="_ref_104"><a href="#prod-FieldDefinitionList">FieldDefinitionList</a><emu-mods><emu-params>[?Yield, ?Await]</emu-params></emu-mods></emu-nt></emu-rhs>
     <emu-rhs a="2e9653e1"><emu-t>static</emu-t><emu-nt params="?Yield, ?Await" id="_ref_105"><a href="#prod-FieldDefinitionList">FieldDefinitionList</a><emu-mods><emu-params>[?Yield, ?Await]</emu-params></emu-mods></emu-nt></emu-rhs>
 </ins></emu-production>
 <emu-production name="MemberExpression" params="Yield, Await" id="prod-MemberExpression">
@@ -2065,7 +2065,7 @@ emu-note[type=editor] span.note {
   </li></ol></emu-alg>
 
   <emu-grammar><emu-production name="ClassElement" collapsed="">
-    <emu-nt><a href="#prod-ClassElement">ClassElement</a></emu-nt><emu-geq>:</emu-geq><emu-rhs a="0bd9f48c"><emu-nt id="_ref_147"><a href="#prod-FieldDefinitionList">FieldDefinitionList</a></emu-nt></emu-rhs>
+    <emu-nt><a href="#prod-ClassElement">ClassElement</a></emu-nt><emu-geq>:</emu-geq><emu-rhs a="7e085666"><emu-t>own</emu-t><emu-gann>[no <emu-nt><a href="https://tc39.github.io/ecma262/#prod-LineTerminator">LineTerminator</a></emu-nt> here]</emu-gann><emu-nt id="_ref_147"><a href="#prod-FieldDefinitionList">FieldDefinitionList</a></emu-nt></emu-rhs>
 </emu-production></emu-grammar>
   <emu-alg><ol><li>Return ClassFieldDefinitionEvaluation of FieldDefinitionList with parameter <emu-val>false</emu-val> and <var>object</var>.
   </li></ol></emu-alg>
@@ -2125,14 +2125,14 @@ emu-note[type=editor] span.note {
 <emu-clause id="initialize-public-static-fields">
   <h1><span class="secnum">2.7</span>InitializeStaticFields(<var>F</var>)</h1>
 
-  <emu-alg><ol><li>Assert: <emu-xref aoid="Type" id="_ref_15"><a href="https://tc39.github.io/ecma262/#sec-ecmascript-data-types-and-values">Type</a></emu-xref>(<var>F</var>) is Object.</li><li>Assert: <var>F</var> is an ECMAScript function object.</li><li>Let <var>fieldRecords</var> be the value of <var>F</var>'s [[Fields]] internal slot.</li><li>For each item <var>fieldRecord</var> in order from <var>fieldRecords</var>,<ol><li>If <var>fieldRecord</var>.[[static]] is <emu-val>true</emu-val>, then<ol><li>Perform ?&nbsp;DefineField(<var>F</var>, <var>fieldRecord</var>).</li></ol></li></ol></li><li>Return.
+  <emu-alg><ol><li>Assert: <emu-xref aoid="Type" id="_ref_15"><a href="https://tc39.github.io/ecma262/#sec-ecmascript-data-types-and-values">Type</a></emu-xref>(<var>F</var>) is Object.</li><li>Assert: <var>F</var> is an ECMAScript function object.</li><li>Let <var>fieldRecords</var> be the value of <var>F</var>'s [[Fields]] internal slot.</li><li>For each item <var>fieldRecord</var> in order from <var>fieldRecords</var>,<ol><li>If <var>fieldRecord</var>.[[static]] is <emu-val>true</emu-val>, then<ol><li>Perform ?&nbsp;DefineField(<var>F</var>, <var>fieldRecord</var>);</li></ol></li></ol></li><li>Return.
   </li></ol></emu-alg>
 </emu-clause>
 
 <emu-clause id="initialize-public-instance-fields">
   <h1><span class="secnum">2.8</span>InitializeInstanceFields ( <var>O</var>, <var>constructor</var> )</h1>
 
-  <emu-alg><ol><li>Assert: Type ( <var>O</var> ) is Object.</li><li>Assert: Assert <var>constructor</var> is an ECMAScript function object.</li><li>Let <var>fieldRecords</var> be the value of <var>constructor</var>'s [[Fields]] internal slot.</li><li>For each item <var>fieldRecord</var> in order from <var>fieldRecords</var>,<ol><li>If <var>fieldRecord</var>.[[static]] is <emu-val>false</emu-val>, then<ol><li>Perform ?&nbsp;DefineField(<var>O</var>, <var>fieldRecord</var>).</li></ol></li></ol></li><li>Return.
+  <emu-alg><ol><li>Assert: Type ( <var>O</var> ) is Object.</li><li>Assert: Assert <var>constructor</var> is an ECMAScript function object.</li><li>Let <var>fieldRecords</var> be the value of <var>constructor</var>'s [[Fields]] internal slot.</li><li>For each item <var>fieldRecord</var> in order from <var>fieldRecords</var>,<ol><li>If <var>fieldRecord</var>.[[static]] is <emu-val>false</emu-val>, then<ol><li>Perform ?&nbsp;DefineField(<var>O</var>, <var>fieldRecord</var>);</li></ol></li></ol></li><li>Return.
   </li></ol></emu-alg>
   <emu-note editor=""><span class="note">Note</span><div class="note-contents">Private fields are added to the object one by one, interspersed with evaluation of the initializers, following the construction of the receiver. These semantics allow for a later initializer to refer to a previously private field.</div></emu-note>
 </emu-clause>
@@ -2218,7 +2218,7 @@ emu-note[type=editor] span.note {
 
     <ins class="block">
       <emu-grammar><emu-production name="ClassElement" collapsed="">
-    <emu-nt><a href="#prod-ClassElement">ClassElement</a></emu-nt><emu-geq>:</emu-geq><emu-rhs a="0bd9f48c"><emu-nt id="_ref_180"><a href="#prod-FieldDefinitionList">FieldDefinitionList</a></emu-nt></emu-rhs>
+    <emu-nt><a href="#prod-ClassElement">ClassElement</a></emu-nt><emu-geq>:</emu-geq><emu-rhs a="7e085666"><emu-t>own</emu-t><emu-gann>[no <emu-nt><a href="https://tc39.github.io/ecma262/#prod-LineTerminator">LineTerminator</a></emu-nt> here]</emu-gann><emu-nt id="_ref_180"><a href="#prod-FieldDefinitionList">FieldDefinitionList</a></emu-nt></emu-rhs>
 </emu-production></emu-grammar>
       <emu-alg><ol><li>Return <emu-val>false</emu-val>.
       </li></ol></emu-alg>
